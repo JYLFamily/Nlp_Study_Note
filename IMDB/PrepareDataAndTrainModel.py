@@ -35,6 +35,8 @@ class PrepareDataAndTrainModel(object):
         # model fit
         self.__net = None
 
+        # model predict
+
     def data_prepare(self):
         def __load_text(path):
             """
