@@ -19,11 +19,10 @@ np.random.seed(7)
 
 
 def rmsle(y_true, y_pred):
-
     return -np.sqrt(np.average((np.log1p(y_pred) - np.log1p(y_true)) ** 2))
 
 
-class PrepareTagLine(object):
+class PrepareTagLineBow(object):
 
     def __init__(self, *, input_path, output_path):
         self.__input_path, self.__output_path = input_path, output_path
@@ -161,17 +160,20 @@ class PrepareTagLine(object):
                   (n_fold + 1, rmsle(self.__train_label[val_idx], self.__oof_preds[val_idx])))
 
     def write_data(self):
-        pd.Series(self.__sub_preds)  \
-            .to_frame("tagline_bow") \
-            .to_csv(os.path.join(self.__output_path, "tagline_bow.csv"), index=False)
+        pd.Series(self.__oof_preds) \
+            .to_frame("train_bow_tagline") \
+            .to_csv(os.path.join(self.__output_path, "train_bow_tagline.csv"), index=False)
+        pd.Series(self.__sub_preds) \
+            .to_frame("test_bow_tagline") \
+            .to_csv(os.path.join(self.__output_path, "test_bow_tagline.csv"), index=False)
 
 
 if __name__ == "__main__":
-    ptl = PrepareTagLine(
+    ptlb = PrepareTagLineBow(
         input_path="E:\\Kaggle\\TMDB_Box_Office_Prediction\\raw",
         output_path="E:\\Kaggle\\TMDB_Box_Office_Prediction\\output"
     )
-    ptl.read_data()
-    ptl.prepare_data()
-    ptl.fit_predict_model()
-    ptl.write_data()
+    ptlb.read_data()
+    ptlb.prepare_data()
+    ptlb.fit_predict_model()
+    ptlb.write_data()
