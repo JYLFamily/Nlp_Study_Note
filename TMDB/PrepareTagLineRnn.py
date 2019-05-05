@@ -2,6 +2,8 @@
 
 import gc
 import os
+import yaml
+import swifter
 import numpy as np
 import pandas as pd
 from nltk import word_tokenize
@@ -54,25 +56,25 @@ class PrepareTagLineRnn(object):
             self.__train_feature["tagline"].str.lower().str.replace(r"[^a-zA-Z]", " ")
         # 分词
         self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()] = \
-            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].apply(
+            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].swifter.apply(
                 lambda text: word_tokenize(text))
         # 去除非单词
         self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()] = \
-            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].apply(
+            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].swifter.apply(
                 lambda words: [word for word in words if word.isalpha()])
         # 去除停用词
         self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()] = \
-            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].apply(
+            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].swifter.apply(
                 lambda words: [word for word in words if word not in stopwords.words("english")])
         # 词形还原 词干提取
         self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()] = \
-            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].apply(
-                lambda words: [WordNetLemmatizer().lemmatize(word, pos="n") for word in words]).apply(
-                lambda words: [WordNetLemmatizer().lemmatize(word, pos="v") for word in words]).apply(
+            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].swifter.apply(
+                lambda words: [WordNetLemmatizer().lemmatize(word, pos="n") for word in words]).swifter.apply(
+                lambda words: [WordNetLemmatizer().lemmatize(word, pos="v") for word in words]).swifter.apply(
                 lambda words: [WordNetLemmatizer().lemmatize(word, pos="a") for word in words])
         # 拼接 list 成 string 以便 vectorizer 使用
         self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()] = \
-            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].apply(
+            self.__train_feature["tagline"][~self.__train_feature["tagline"].isna()].swifter.apply(
                 lambda words: " ".join(words))
         # 填充缺失值
         self.__train_feature["tagline"] = self.__train_feature["tagline"].fillna(" ")
@@ -82,25 +84,25 @@ class PrepareTagLineRnn(object):
             self.__test_feature["tagline"].str.lower().str.replace(r"[^a-zA-Z]", " ")
 
         self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()] = \
-            self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()].apply(
+            self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()].swifter.apply(
                 lambda text: word_tokenize(text))
 
         self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()] = \
-            self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()].apply(
+            self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()].swifter.apply(
                 lambda words: [word for word in words if word.isalpha()])
 
         self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()] = \
-            self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()].apply(
+            self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()].swifter.apply(
                 lambda words: [word for word in words if word not in stopwords.words("english")])
 
         self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()] = \
             self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()].apply(
-                lambda words: [WordNetLemmatizer().lemmatize(word, pos="n") for word in words]).apply(
-                lambda words: [WordNetLemmatizer().lemmatize(word, pos="v") for word in words]).apply(
+                lambda words: [WordNetLemmatizer().lemmatize(word, pos="n") for word in words]).swifter.apply(
+                lambda words: [WordNetLemmatizer().lemmatize(word, pos="v") for word in words]).swifter.apply(
                 lambda words: [WordNetLemmatizer().lemmatize(word, pos="a") for word in words])
 
         self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()] = \
-            self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()].apply(
+            self.__test_feature["tagline"][~self.__test_feature["tagline"].isna()].swifter.apply(
                 lambda words: " ".join(words))
 
         self.__test_feature["tagline"] = self.__test_feature["tagline"].fillna(" ")
@@ -146,9 +148,10 @@ class PrepareTagLineRnn(object):
                 output_dim=50,
                 weights=[embedding_matrix],
                 input_length=self.__mle,
+                mask_zero=False,
                 trainable=False
             ))
-            net.add(SimpleRNN(2))
+            net.add(SimpleRNN(units=2))
             net.add(Dense(1, activation="linear"))
             net.compile(loss=rmsle, optimizer=Adam())
             net.fit(
@@ -180,10 +183,10 @@ class PrepareTagLineRnn(object):
 
 
 if __name__ == "__main__":
-    ptlr = PrepareTagLineRnn(
-        input_path="E:\\Kaggle\\TMDB_Box_Office_Prediction\\raw",
-        output_path="E:\\Kaggle\\TMDB_Box_Office_Prediction\\output"
-    )
+    with open("config.yaml", encoding="UTF-8") as config_file:
+        config = yaml.load(config_file)  # python 中是没有块级作用域的，代码块里的变量，外部可以调用
+
+    ptlr = PrepareTagLineRnn(input_path=config["input_path"], output_path=config["output_path"])
     ptlr.read_data()
     ptlr.prepare_data()
     ptlr.fit_predict_model()
