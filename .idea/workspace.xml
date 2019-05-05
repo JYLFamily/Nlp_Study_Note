@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="350c9832-e7d1-4970-bc6a-67c393122f18" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TMDB/PrepareTagLineRnn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TMDB/PrepareOverviewRnn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TMDB/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TMDB/PrepareTagLine.py" beforeDir="false" afterPath="$PROJECT_DIR$/TMDB/PrepareTagLineBow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMDB/PrepareTagLineRnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/TMDB/PrepareTagLineRnn.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,25 +16,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TMDB/PrepareTagLineBow.py">
+        <entry file="file://$PROJECT_DIR$/TMDB/config.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="167" column="90" lean-forward="true" selection-start-line="161" selection-start-column="4" selection-end-line="167" selection-end-column="90" />
-              <folding>
-                <element signature="e#16#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IMDB/PrepareDataAndPreTrainModel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="921">
-              <caret line="138" column="34" lean-forward="true" selection-start-line="138" selection-start-column="34" selection-end-line="138" selection-end-column="34" />
-              <folding>
-                <element signature="e#16#25#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="27">
+              <caret line="1" column="50" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -41,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TMDB/PrepareTagLineRnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="146" column="43" lean-forward="true" selection-start-line="146" selection-start-column="43" selection-end-line="146" selection-end-column="43" />
+            <state relative-caret-position="85">
+              <caret line="169" column="24" lean-forward="true" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
               <folding>
                 <element signature="e#16#25#0" expanded="true" />
               </folding>
@@ -66,6 +52,10 @@
       <find>text_document</find>
       <find>validation_data</find>
       <find>mean_squared_logarithmic_error</find>
+      <find>recurrent_dropout</find>
+      <find>return_sequences</find>
+      <find>mask_zero</find>
+      <find>inputs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -78,6 +68,9 @@
         <option value="$PROJECT_DIR$/TMDB/PrepareData.py" />
         <option value="$PROJECT_DIR$/TMDB/PrepareTagLine.py" />
         <option value="$PROJECT_DIR$/TMDB/PrepareTagLineBow.py" />
+        <option value="$PROJECT_DIR$/TMDB/PrepareRawData.py" />
+        <option value="$PROJECT_DIR$/TMDB/PrepareOverviewRnn.py" />
+        <option value="$PROJECT_DIR$/TMDB/config.yaml" />
         <option value="$PROJECT_DIR$/TMDB/PrepareTagLineRnn.py" />
       </list>
     </option>
@@ -93,6 +86,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -114,7 +108,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -155,6 +148,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="C:\Users\15795\PycharmProjects\Nlp_Study_Note\TMDB\PrepareTagLineBow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrepareOverviewRnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Nlp_Study_Note" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TMDB" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TMDB/PrepareOverviewRnn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -229,6 +243,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.PrepareTagLineRnn" />
+        <item itemvalue="Python.PrepareOverviewRnn" />
         <item itemvalue="Python.PrepareTagLineBow" />
         <item itemvalue="Python.PrepareTagLine" />
         <item itemvalue="Python.PrepareData" />
@@ -260,19 +275,32 @@
       <option name="project" value="LOCAL" />
       <updated>1556631211996</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="tagline bow + regular model">
+      <created>1556804138299</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556804138299</updated>
+    </task>
+    <task id="LOCAL-00004" summary="tagline pretrain rnn">
+      <created>1556804209933</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556804209933</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1862" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18859649" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14035088" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3792735" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27457264" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -288,7 +316,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="tagline bow + regular model" />
-    <option name="LAST_COMMIT_MESSAGE" value="tagline bow + regular model" />
+    <MESSAGE value="tagline pretrain rnn" />
+    <option name="LAST_COMMIT_MESSAGE" value="tagline pretrain rnn" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://E:/ProgramFiles/Anaconda3/Lib/site-packages/nltk/stem/wordnet.py">
@@ -415,20 +444,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TMDB/PrepareTagLineBow.py">
+    <entry file="file://$PROJECT_DIR$/TMDB/PrepareRawData.py" />
+    <entry file="file://E:/ProgramFiles/Anaconda3/Lib/site-packages/keras/backend/tensorflow_backend.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="167" column="90" lean-forward="true" selection-start-line="161" selection-start-column="4" selection-end-line="167" selection-end-column="90" />
+        <state relative-caret-position="206">
+          <caret line="1619" column="7" lean-forward="true" selection-start-line="1619" selection-start-column="7" selection-end-line="1619" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/ProgramFiles/Anaconda3/Lib/site-packages/keras/layers/embeddings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1782">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/ProgramFiles/Anaconda3/Lib/site-packages/keras/layers/recurrent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26163">
+          <caret line="988" column="24" selection-start-line="988" selection-start-column="8" selection-end-line="988" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TMDB/PrepareOverviewRnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="143" column="29" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="29" />
           <folding>
             <element signature="e#16#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TMDB/PrepareTagLineBow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3402">
+          <caret line="156" column="65" lean-forward="true" selection-start-line="156" selection-start-column="65" selection-end-line="156" selection-end-column="65" />
+          <folding>
+            <element signature="e#16#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TMDB/config.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="50" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TMDB/PrepareTagLineRnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="146" column="43" lean-forward="true" selection-start-line="146" selection-start-column="43" selection-end-line="146" selection-end-column="43" />
+        <state relative-caret-position="85">
+          <caret line="169" column="24" lean-forward="true" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
           <folding>
             <element signature="e#16#25#0" expanded="true" />
           </folding>
